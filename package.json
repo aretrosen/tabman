@@ -1,0 +1,51 @@
+{
+  "name": "@kyvernetes/tabman",
+  "version": "0.0.1",
+  "description": "Tab Completion and Argument parser for CLI programs",
+  "main": "dist/index.js",
+  "module": "dist/recommended.mjs",
+  "types": "dist/recommended.d.ts",
+  "scripts": {
+    "ci": "turbo build type-check lint",
+    "dev": "vitest",
+    "lint": "oxlint",
+    "build": "tsup src/index.ts --format cjs,esm --dts",
+    "type-check": "tsc",
+    "release": "turbo build publish",
+    "publish": "changeset publish"
+  },
+  "keywords": [
+    "tab",
+    "completion",
+    "complete",
+    "argument",
+    "parser",
+    "shell",
+    "cli",
+    "terminal"
+  ],
+  "author": "Aritra Sen",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/aretrosen/tabman.git"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "trailingComma": "all",
+    "semi": true,
+    "printWidth": 80,
+    "singleQuote": false,
+    "tabWidth": 2,
+    "useTabs": false
+  },
+  "devDependencies": {
+    "@changesets/cli": "^2.27.1",
+    "@types/node": "^20.11.20",
+    "oxlint": "^0.2.10",
+    "tsup": "^8.0.2",
+    "turbo": "^1.12.4",
+    "typescript": "^5.3.3",
+    "vitest": "^1.3.1"
+  }
+}
