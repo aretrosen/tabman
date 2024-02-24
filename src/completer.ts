@@ -177,12 +177,15 @@ export class Completion {
         this.typedOpts[p0] = "number";
         continue;
       }
-      const splChar = [...parg.slice(1)].reduce(
-        (res, char) => (
-          res.set(`-${char}`, (res.get(`-${char}`) ?? 0) + 1), res
-        ),
-        new Map<string, number>(),
-      );
+      const splChar = parg
+        .slice(1)
+        .split("")
+        .reduce(
+          (res, char) => (
+            res.set(`-${char}`, (res.get(`-${char}`) ?? 0) + 1), res
+          ),
+          new Map<string, number>(),
+        );
       splChar.forEach((v, k) => {
         pargs.add(k);
         if (this.typedOpts[k] === "boolean" || v === 1) {

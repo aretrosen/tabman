@@ -20,7 +20,7 @@ export function getShell(shell?: string): string {
     );
   }
 
-  shell = shell.split(/[\/\\]+/).pop();
+  shell = shell.split(/[/\\]+/).pop();
 
   if (!SUPPORTED_SHELLS.includes(shell!)) {
     throw new ShellValidationError(
