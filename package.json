@@ -1,6 +1,6 @@
 {
   "name": "@kyvernetes/tabman",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Tab Completion and Argument parser for CLI programs",
   "main": "dist/index.js",
   "module": "dist/recommended.mjs",
