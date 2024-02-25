@@ -1,5 +1,11 @@
 # @kyvernetes/tabman
 
+## 0.0.1
+
+### Patch Changes
+
+- 870ef85: First release
+
 ## 0.0.3
 
 ### Patch Changes
