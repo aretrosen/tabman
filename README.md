@@ -56,9 +56,9 @@ The `nextCompletions` method reads the value of the `COMP_LINE` environment vari
 
 ## To-dos:
 
-- [] Completions for `bash` and `pwsh`, maybe `nushell` too.
-- [] An inbuilt logging function.
-- [] A better algorithm to automatically detect argument type.
+- [ ] Completions for `bash` and `pwsh`, maybe `nushell` too.
+- [ ] An inbuilt logging function.
+- [ ] A better algorithm to automatically detect argument type.
 
 ## Why "Tabman"?
 
