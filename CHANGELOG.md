@@ -1,5 +1,11 @@
 # @kyvernetes/tabman
 
+## 0.0.4
+
+### Patch Changes
+
+- 46e30ea: Added proper licensing
+
 ## 0.0.3
 
 ### Patch Changes
