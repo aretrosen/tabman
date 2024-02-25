@@ -8,6 +8,7 @@
   "scripts": {
     "ci": "turbo build type-check lint",
     "dev": "vitest",
+    "test": "vitest run",
     "lint": "oxlint",
     "build": "tsup src/index.ts --format cjs,esm --dts",
     "type-check": "tsc",
