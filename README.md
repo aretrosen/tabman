@@ -68,4 +68,4 @@ No deep meaning here - just some letter-swapping fun: tab → bat → Batman = *
 
 Thank you for considering contributing to **Tabman**! I welcome contributions from anyone who wants to improve the project. You are also welcome to contribute by writing new features and reporting any issues you may find.
 
-If you discover a security vulnerability, please do not disclose it publicly. Instead, please email the details to me privately at `<aretsonen AT proton DOT me>`. Your help in keeping `Tabman` secure is greatly appreciated!
+If you discover a security vulnerability, please do not disclose it publicly. Instead, please email the details to me privately at `<aretrosen AT proton DOT me>`. Your help in keeping `Tabman` secure is greatly appreciated!
