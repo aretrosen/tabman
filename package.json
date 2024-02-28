@@ -3,8 +3,8 @@
   "version": "0.0.1",
   "description": "Tab Completion and Argument parser for CLI programs",
   "main": "dist/index.js",
-  "module": "dist/recommended.mjs",
-  "types": "dist/recommended.d.ts",
+  "module": "dist/index.mjs",
+  "types": "dist/index.d.ts",
   "scripts": {
     "ci": "turbo build type-check lint",
     "dev": "vitest",
