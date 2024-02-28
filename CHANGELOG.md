@@ -1,5 +1,11 @@
 # @kyvernetes/tabman
 
+## 0.1.0
+
+### Minor Changes
+
+- 5e762e6: Publish minor version
+
 ## 0.0.2
 
 ### Patch Changes
