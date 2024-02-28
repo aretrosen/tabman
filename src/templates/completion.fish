@@ -4,7 +4,7 @@ function _{pkgname}_completion
   set cursor (commandline -C)
   set words (count $cmd)
 
-  set completions (eval env DEBUG=\"" \"" COMP_LINE=\""$cmd \"" {completer} completion-server -- $cmd)
+  set completions (eval env DEBUG=\"" \"" COMP_LINE=\""$cmd \"" {pkgname} {completer} -- $cmd)
 
   if [ "$completions" = "__tabtab_complete_files__" ]
     set -l matches (commandline -ct)*

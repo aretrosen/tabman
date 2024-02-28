@@ -4,7 +4,7 @@ _{pkgname}_completion () {
   local reply
   local si=$IFS
 
-  IFS=$'\n' reply=($(COMP_LINE="$BUFFER" {completer} completion-server -- "${words[@]}"))
+  IFS=$'\n' reply=($(COMP_LINE="$BUFFER" {pkgname} {completer} -- "${words[@]}"))
   IFS=$si
 
   if [ "$reply" = "__tabtab_complete_files__" ]; then

@@ -8,24 +8,26 @@ To use `Tabman`, first import `Completions` and `argFunction`, and then define y
 
 ```typescript
 const myCompletions = {
-  // Add a --help option
-  "--help": { description: "Some kinda help" },
-  // Define an "add" command with several options
+  "--help": { __desc: "Some kinda help" },
   add: {
-    description: "Some kinda add",
-    "-d, --dev": { description: "Some kinda dev" },
-    "-p, --prod": { description: "Some kinda prod" },
-    "--opt": { description: "Some kinda optional" },
+    __desc: "Some kinda add",
+    "--dev": {
+      __desc: "Some kinda dev",
+    },
+    "--prod": {
+      __desc: "Some kinda prod",
+    },
+    "--opt": {
+      __desc: "Some kinda optional",
+    },
   },
-  // Define a "cache" command with subcommands
   cache: ["ls", "dir", "clean"],
-  // Create a "global" namespace with its own properties
   global: {
     add: {},
     cache: {},
   },
 };
-// Make sure the "global" namespace has the same values as the top-level keys
+
 myCompletions.global.add = myCompletions.add;
 myCompletions.global.cache = myCompletions.cache;
 ```
