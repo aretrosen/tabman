@@ -1,5 +1,11 @@
 # @kyvernetes/tabman
 
+## 0.1.2
+
+### Patch Changes
+
+- d7af907: Pack examples too
+
 ## 0.1.1
 
 ### Patch Changes
