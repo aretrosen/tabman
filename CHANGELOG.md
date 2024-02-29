@@ -1,5 +1,11 @@
 # @kyvernetes/tabman
 
+## 0.1.2
+
+### Patch Changes
+
+- a72f674: Bump version to 0.1.2
+
 ## 0.1.1
 
 ### Patch Changes
