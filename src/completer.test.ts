@@ -34,7 +34,7 @@ const typer: Record<string, argFunction> = {
 it("zsh completion for no partial word", () => {
   process.env["COMP_LINE"] = "some global ";
   const someCompletions = new Completion(myCompletions, typer, new Map());
-  const compgen = someCompletions.nextCompletions("zsh", []);
+  const compgen = someCompletions.nextCompletions("zsh");
   expect(compgen).toEqual(["add:Some kinda add", "cache"]);
   process.env["COMP_LINE"] = undefined;
 });
@@ -42,7 +42,7 @@ it("zsh completion for no partial word", () => {
 it("zsh completion for partial word", () => {
   process.env["COMP_LINE"] = "some global a";
   const someCompletions = new Completion(myCompletions, typer, new Map());
-  const compgen = someCompletions.nextCompletions("zsh", []);
+  const compgen = someCompletions.nextCompletions("zsh");
   expect(compgen).toEqual(["add:Some kinda add", "cache"]);
   process.env["COMP_LINE"] = undefined;
 });
@@ -50,7 +50,7 @@ it("zsh completion for partial word", () => {
 it("bash completion for partial word", () => {
   process.env["COMP_LINE"] = "some global a";
   const someCompletions = new Completion(myCompletions, typer, new Map());
-  const compgen = someCompletions.nextCompletions("bash", []);
+  const compgen = someCompletions.nextCompletions("bash");
   expect(compgen).toEqual(["add"]);
   process.env["COMP_LINE"] = undefined;
 });

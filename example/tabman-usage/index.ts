@@ -53,7 +53,7 @@ async function init() {
   }
 
   if (cmd === "completion") {
-    const comp = someCompletions.nextCompletions(shell, []);
+    const comp = someCompletions.nextCompletions(shell);
     if (typeof comp === "string") {
       console.log(comp);
     } else {

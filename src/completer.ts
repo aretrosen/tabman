@@ -102,8 +102,6 @@ export class Completion {
   private _argProcessor(line: string) {
     const argSplit = line.split(/ -- /);
 
-    // TODO: Another thing that can be done is not clearing everytime, and
-    // compare with the previous line. To be implemented later.
     this._argValues["clear"]();
     this._argValues["--"] = argSplit[1]?.split(" ") || [];
 
@@ -204,10 +202,7 @@ export class Completion {
     };
   }
 
-  public nextCompletions(
-    shell: string,
-    otherCompletions: CompletionUnit[],
-  ): string | string[] {
+  public nextCompletions(shell: string): string | string[] {
     const line = process.env["COMP_LINE"];
     if (!line) {
       return [];
@@ -223,10 +218,7 @@ export class Completion {
     if (typeof definedCompletions === "string") {
       return definedCompletions;
     }
-    let lines = this._stringifyCompletions(
-      shell,
-      definedCompletions.concat(otherCompletions),
-    );
+    let lines = this._stringifyCompletions(shell, definedCompletions);
     if (shell === "bash") {
       lines = lines.filter((arg) => arg.startsWith(partial));
     }

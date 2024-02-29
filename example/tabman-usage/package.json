@@ -13,7 +13,7 @@
   "author": "Aritra Sen",
   "license": "MIT",
   "devDependencies": {
-    "@kyvernetes/tabman": "^0.1.1",
+    "@kyvernetes/tabman": "workspace:*",
     "@types/node": "^20.11.22",
     "typescript": "^5.3.3"
   }

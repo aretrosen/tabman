@@ -1,6 +1,6 @@
 # Tabman
 
-Tabman is a library for JavaScript and TypeScript command line interface (CLI) programs that provides functionality for tab completion and argument parsing.
+**Tabman** is a library for JavaScript and TypeScript command line interface (CLI) programs that provides functionality for tab completion and argument parsing.
 
 ## Usage
 
@@ -48,13 +48,17 @@ Then, create an instance of the `Completion` class, passing it the completions o
 const someCompletions = new Completion(myCompletions, typer, new Map());
 ```
 
-Finally, call the `nextCompletions` method on the `Completion` instance whenever you want to generate a list of possible completions. You must provide the name of the current shell and any additional completions you want to include. In this case, we only provided the default completions, so we pass an empty array.
+Finally, call the `nextCompletions` method on the `Completion` instance whenever you want to generate a list of possible completions. You must provide the name of the current shell and any additional completions you want to include.
 
 ```typescript
-const compgen = someCompletions.nextCompletions("zsh", []);
+const compgen = someCompletions.nextCompletions("zsh");
 ```
 
-The `nextCompletions` method reads the value of the `COMP_LINE` environment variable and generates a set of possible completions based on the current state of the command line input. These completions can then be used to display suggestions to the user. You can use any logging function you want, even `console.log`.
+The `nextCompletions` method reads the value of the `COMP_LINE` environment variable and generates completions based on the current state of the command line input. You can now use any logging function you want, for simplicity use `console.log`.
+
+## Example Usage:
+
+See a simple example [here](/example/tabman-usage/).
 
 ## To-dos:
 
