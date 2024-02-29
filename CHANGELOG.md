@@ -1,5 +1,11 @@
 # @kyvernetes/tabman
 
+## 0.1.3
+
+### Patch Changes
+
+- cc906e6: Bump version to 0.1.3
+
 ## 0.1.2
 
 ### Patch Changes
