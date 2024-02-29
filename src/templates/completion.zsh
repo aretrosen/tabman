@@ -7,7 +7,7 @@ _{pkgname}_completion () {
   IFS=$'\n' reply=($(COMP_LINE="$BUFFER" {pkgname} {completer} -- "${words[@]}"))
   IFS=$si
 
-  if [ "$reply" = "__tabtab_complete_files__" ]; then
+  if [ "$reply" = "__tabman_complete_files__" ]; then
     _files
   else
     _describe 'values' reply

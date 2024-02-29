@@ -6,7 +6,7 @@ function _{pkgname}_completion
 
   set completions (eval env DEBUG=\"" \"" COMP_LINE=\""$cmd \"" {pkgname} {completer} -- $cmd)
 
-  if [ "$completions" = "__tabtab_complete_files__" ]
+  if [ "$completions" = "__tabman_complete_files__" ]
     set -l matches (commandline -ct)*
     if [ -n "$matches" ]
       __fish_complete_path (commandline -ct)
