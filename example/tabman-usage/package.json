@@ -1,6 +1,7 @@
 {
   "name": "tabman-usage",
   "version": "0.0.1",
+  "private": true,
   "description": "An example binary for tabman",
   "bin": {
     "tabman-usage": "dist/index.js"
