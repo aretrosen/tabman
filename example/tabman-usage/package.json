@@ -6,8 +6,9 @@
     "tabman-usage": "dist/index.js"
   },
   "scripts": {
-    "build": "tsc --build",
-    "installer": "pnpm build && pnpm link --global"
+    "build": "exit 0",
+    "builder": "tsc --build",
+    "installer": "pnpm run builder && pnpm link --global"
   },
   "keywords": [],
   "author": "Aritra Sen",
