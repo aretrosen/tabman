@@ -1,5 +1,11 @@
 # @kyvernetes/tabman
 
+## 0.1.1
+
+### Patch Changes
+
+- a4d477b: Add templates to dist directory
+
 ## 0.1.0
 
 ### Minor Changes
