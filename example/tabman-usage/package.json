@@ -1,0 +1,20 @@
+{
+  "name": "tabman-usage",
+  "version": "0.0.1",
+  "description": "An example binary for tabman",
+  "bin": {
+    "tabman-usage": "dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc --build",
+    "installer": "pnpm build && pnpm link --global"
+  },
+  "keywords": [],
+  "author": "Aritra Sen",
+  "license": "MIT",
+  "devDependencies": {
+    "@kyvernetes/tabman": "^0.1.1",
+    "@types/node": "^20.11.22",
+    "typescript": "^5.3.3"
+  }
+}
