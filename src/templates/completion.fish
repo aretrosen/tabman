@@ -1,10 +1,9 @@
-###-begin-{pkgname}-completion-###
 function _{pkgname}_completion
   set cmd (commandline -o)
   set cursor (commandline -C)
   set words (count $cmd)
 
-  set completions (eval env DEBUG=\"" \"" COMP_LINE=\""$cmd \"" {pkgname} {completer} -- $cmd)
+  set completions (eval env DEBUG=\"" \"" COMP_LINE=\""$cmd \"" SHELL=fish {pkgname} {completer} -- $cmd)
 
   if [ "$completions" = "__tabman_complete_files__" ]
     set -l matches (commandline -ct)*
@@ -19,4 +18,3 @@ function _{pkgname}_completion
 end
 
 complete -f -d '{pkgname}' -c {pkgname} -a "(_{pkgname}_completion)"
-###-end-{pkgname}-completion-###

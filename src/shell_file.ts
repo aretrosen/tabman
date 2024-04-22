@@ -12,7 +12,7 @@ export const SUPPORTED_SHELLS: string[] = ["bash", "zsh", "fish"];
 
 export function getShell(shell?: string): string {
   shell = shell?.trim();
-  shell = shell || process.env["SHELL"];
+  shell = shell ?? process.env["SHELL"];
 
   if (!shell) {
     throw new ShellValidationError(
@@ -39,7 +39,7 @@ export async function generateShellCompletion(
   shell?: string,
 ): Promise<string> {
   shell = getShell(shell);
-  completer = completer || "completion";
+  completer = completer ?? "completion";
 
   const templateScript = path.join(
     __dirname,

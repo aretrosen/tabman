@@ -57,6 +57,7 @@ async function init() {
     if (typeof comp === "string") {
       console.log(comp);
     } else {
+      if (comp.length == 0) return;
       comp.forEach((item) => {
         console.log(item);
       });

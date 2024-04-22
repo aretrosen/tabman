@@ -1,10 +1,10 @@
 #compdef {pkgname}
 ###-begin-{pkgname}-completion-###
-_{pkgname}_completion () {
+_{pkgname}_completion() {
   local reply
   local si=$IFS
 
-  IFS=$'\n' reply=($(COMP_LINE="$BUFFER" {pkgname} {completer} -- "${words[@]}"))
+  IFS=$'\n' reply=($(COMP_LINE="$BUFFER" SHELL=zsh {pkgname} {completer} -- "${words[@]}"))
   IFS=$si
 
   if [ "$reply" = "__tabman_complete_files__" ]; then

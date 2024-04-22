@@ -11,7 +11,7 @@
     "installer": "pnpm build && pnpm link --global"
   },
   "keywords": [],
-  "author": "Aritra Sen",
+  "author": "Aritro Sen",
   "license": "MIT",
   "devDependencies": {
     "@kyvernetes/tabman": "workspace:*",

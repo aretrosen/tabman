@@ -13,7 +13,7 @@ export type argFunction =
   | "number_array";
 
 export class Completion {
-  private _argValues: Record<string, any>;
+  private _argValues: Map<string, any>;
 
   constructor(
     public completions: Record<string, any>,
@@ -102,11 +102,11 @@ export class Completion {
   private _argProcessor(line: string) {
     const argSplit = line.split(/ -- /);
 
-    this._argValues["clear"]();
-    this._argValues["--"] = argSplit[1]?.split(" ") || [];
+    this._argValues.clear();
+    this._argValues.set("--", argSplit[1]?.split(" ") || []);
 
     const argParts = argSplit[0]!.split(/[ =]+/).slice(1);
-    if (this._argValues["--"].length > 0) argParts.push("");
+    if (this._argValues.get("--").length > 0) argParts.push("");
     const partial = argParts.pop() ?? "";
     const len = argParts.length;
 
@@ -117,48 +117,50 @@ export class Completion {
       let parg = argParts[i] ?? "";
       if (!parg.startsWith("-")) {
         if (parg in this.typedOpts) {
-          this._argValues[parg] = true;
+          this._argValues.set(parg, true);
           pargs.add(parg);
         } else {
-          this._argValues["--"].push(parg);
+          this._argValues.get("--").push(parg);
         }
         continue;
       }
       if (parg.startsWith("--") || parg.length === 2) {
         const fntype: argFunction | undefined = this.typedOpts[parg];
         if ((!fntype && !pargs.has(parg)) || fntype === "boolean") {
-          this._argValues[parg] = true;
+          this._argValues.set(parg, true);
           this.typedOpts[parg] = "boolean";
         } else if (fntype === "string" || fntype === "number") {
           if (i === len - 1) {
             compleOpt = true;
             break;
           }
-          this._argValues[parg] =
-            fntype === "string" ? argParts[++i] : Number(argParts[++i]);
+          this._argValues.set(
+            parg,
+            fntype === "string" ? argParts[++i] : Number(argParts[++i]),
+          );
         } else if (!fntype || fntype === "count") {
-          this._argValues[parg] = (this._argValues[parg] ?? 0) + 1;
+          this._argValues.set(parg, (this._argValues.get(parg) ?? 0) + 1);
           this.typedOpts[parg] = "count";
         } else if (fntype === "string_array") {
-          this._argValues[parg] ??= [];
+          this._argValues.set(parg, this._argValues.get(parg) ?? []);
           if (i === len - 1) {
             compleOpt = true;
             break;
           }
-          this._argValues[parg].concat(argParts[++i]!.split(","));
+          this._argValues.get(parg).concat(argParts[++i]!.split(","));
         } else if (fntype === "number_array") {
-          this._argValues[parg] ??= [];
+          this._argValues.set(parg, this._argValues.get(parg) ?? []);
           if (i === len - 1) {
             compleOpt = true;
             break;
           }
           if (argParts[i + 1]?.includes(",")) {
-            this._argValues[parg].concat(
-              argParts[++i]!.split(",").map((item) => Number(item)),
-            );
+            this._argValues
+              .get(parg)
+              .concat(argParts[++i]!.split(",").map((item) => Number(item)));
           } else {
             while (i < len - 1 && !Number.isNaN(Number(argParts[i + 1]))) {
-              this._argValues[parg].push(Number(argParts[++i]));
+              this._argValues.get(parg).push(Number(argParts[++i]));
             }
           }
         }
@@ -171,7 +173,7 @@ export class Completion {
         !Number.isNaN(Number(parg.slice(2)))
       ) {
         pargs.add(p0);
-        this._argValues[p0] = Number(parg.slice(2));
+        this._argValues.set(p0, Number(parg.slice(2)));
         this.typedOpts[p0] = "number";
         continue;
       }
@@ -187,10 +189,10 @@ export class Completion {
       splChar.forEach((v, k) => {
         pargs.add(k);
         if (this.typedOpts[k] === "boolean" || v === 1) {
-          this._argValues[k] = true;
+          this._argValues.set(k, true);
           this.typedOpts[k] = "boolean";
         } else {
-          this._argValues[k] = (this._argValues[k] ?? 0) + v;
+          this._argValues.set(k, (this._argValues.get(k) ?? 0) + v);
           this.typedOpts[k] = "count";
         }
       });
@@ -225,7 +227,7 @@ export class Completion {
     return lines;
   }
 
-  public parsedArguments(): Record<string, any> {
+  public parsedArguments(): Map<string, any> {
     return this._argValues;
   }
 }
