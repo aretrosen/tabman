@@ -15,7 +15,7 @@
   "license": "MIT",
   "devDependencies": {
     "@kyvernetes/tabman": "workspace:*",
-    "@types/node": "^20.11.22",
-    "typescript": "^5.3.3"
+    "@types/node": "^20.12.7",
+    "typescript": "^5.4.5"
   }
 }
