@@ -1,5 +1,11 @@
 # @kyvernetes/tabman
 
+## 0.1.4
+
+### Patch Changes
+
+- f7702d3: Bash completion added
+
 ## 0.1.3
 
 ### Patch Changes
